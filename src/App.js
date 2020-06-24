@@ -30,6 +30,7 @@ function App(props) {
     }
     return gridRows;
   });
+
   const coordinates = [
     [0, 1],
     [0, -1],
@@ -72,6 +73,32 @@ function App(props) {
       [name]: event.target.value,
     });
     console.log(color);
+  };
+
+  const stepForward = () => {
+    currentGen += 1;
+    setGrid((g) => {
+      return produce(g, (gridCopy) => {
+        for (let i = 0; i < rows; i++) {
+          for (let j = 0; j < columns; j++) {
+            let cells = 0;
+            coordinates.forEach(([x, y]) => {
+              const nextI = i + x;
+              const nextJ = j + y;
+              if (nextI >= 0 && nextI < rows && nextJ >= 0 && nextJ < columns) {
+                cells += g[nextI][nextJ];
+              }
+            });
+
+            if (cells < 2 || cells > 3) {
+              gridCopy[i][j] = 0;
+            } else if (g[i][j] === 0 && cells === 3) {
+              gridCopy[i][j] = 1;
+            }
+          }
+        }
+      });
+    });
   };
 
   const startGame = useCallback(() => {
@@ -224,6 +251,13 @@ function App(props) {
             Stop
           </Button>
         )}
+        <Button
+          onClick={() => {
+            stepForward();
+          }}
+        >
+          Step Forward
+        </Button>
       </div>
 
       <div
