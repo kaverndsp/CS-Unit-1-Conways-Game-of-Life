@@ -75,6 +75,17 @@ function App(props) {
     console.log(color);
   };
 
+  const reset = () => {
+    currentGen = 0;
+    setGrid(() => {
+      const gridRows = [];
+      for (let i = 0; i < rows; i++) {
+        gridRows.push(Array.from(Array(columns), () => 0));
+      }
+      return gridRows;
+    });
+  };
+
   const stepForward = () => {
     currentGen += 1;
     setGrid((g) => {
@@ -257,6 +268,13 @@ function App(props) {
           }}
         >
           Step Forward
+        </Button>
+        <Button
+          onClick={() => {
+            reset();
+          }}
+        >
+          Reset
         </Button>
       </div>
 
