@@ -258,12 +258,32 @@ function App(props) {
       <div className="text">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Neque
+          viverra justo nec ultrices dui sapien eget mi. Sodales ut etiam sit
+          amet nisl purus in mollis. Gravida dictum fusce ut placerat orci nulla
+          pellentesque. Donec adipiscing tristique risus nec feugiat in
+          fermentum. At ultrices mi tempus imperdiet nulla malesuada
+          pellentesque elit eget. Massa tincidunt dui ut ornare lectus.
+          Curabitur vitae nunc sed velit dignissim sodales ut eu sem. Duis at
+          tellus at urna condimentum mattis pellentesque. Arcu vitae elementum
+          curabitur vitae nunc sed velit dignissim sodales. Pharetra pharetra
+          massa massa ultricies. In massa tempor nec feugiat nisl pretium fusce
+          id. A lacus vestibulum sed arcu non. Diam maecenas ultricies mi eget
+          mauris pharetra et ultrices. Nisl vel pretium lectus quam id leo in
+          vitae. Purus gravida quis blandit turpis cursus. Odio tempor orci
+          dapibus ultrices in iaculis. Donec ac odio tempor orci dapibus
+          ultrices in iaculis nunc. Amet consectetur adipiscing elit duis
+          tristique sollicitudin nibh sit. Molestie ac feugiat sed lectus
+          vestibulum mattis. Faucibus a pellentesque sit amet porttitor eget
+          dolor morbi. Viverra nibh cras pulvinar mattis. Turpis egestas integer
+          eget aliquet nibh praesent. In hac habitasse platea dictumst quisque.
+          Et magnis dis parturient montes nascetur ridiculus mus mauris vitae.
+          Curabitur vitae nunc sed velit dignissim sodales ut eu sem. Mattis
+          aliquam faucibus purus in massa tempor. Iaculis at erat pellentesque
+          adipiscing commodo elit. Scelerisque viverra mauris in aliquam sem.
+          Ullamcorper eget nulla facilisi etiam dignissim. Sed risus ultricies
+          tristique nulla aliquet enim. Cras adipiscing enim eu turpis egestas.
+          Etiam erat velit scelerisque in.
         </p>
       </div>
     </div>
