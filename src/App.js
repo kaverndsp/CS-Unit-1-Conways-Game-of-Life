@@ -108,6 +108,124 @@ function App(props) {
 
   return (
     <div className="grid-container">
+      <div className="button-container">
+        <Typography variant="h4" component="h2">
+          Current Generation {currentGen}
+        </Typography>
+        {/* <Button
+          color="primary"
+          variant="outlined"
+          onClick={() => changeGrid(10, 10)}
+        >
+          10 x 10
+        </Button>
+        <Button
+          color="primary"
+          variant="outlined"
+          onClick={() => changeGrid(25, 25)}
+        >
+          25 x 25
+        </Button>
+        <Button
+          color="primary"
+          variant="outlined"
+          onClick={() => changeGrid(50, 50)}
+        >
+          50 x 50 (Default)
+        </Button> */}
+        <div>
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={() => {
+              speedChanger(2);
+            }}
+          >
+            Decrease Speed
+          </Button>
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={() => {
+              speedChanger(1);
+            }}
+          >
+            Increase Speed
+          </Button>
+          <Typography variant="h6" component="h2">
+            Current Speed {newSpeed} Seconds
+          </Typography>
+        </div>
+
+        <InputLabel htmlFor="filled-age-native-simple">Cell Color</InputLabel>
+        <Select
+          native
+          value={color.cellColor}
+          onChange={handleChange}
+          inputProps={{
+            name: "cellColor",
+            id: "filled-age-native-simple",
+          }}
+        >
+          <option label={color.cellColor} value={color.cellColor} />
+          <option value={"Green"}>Green</option>
+          <option value={"Red"}>Red</option>
+          <option value={"Yellow"}>Yellow</option>
+          <option value={"Black"}>Black</option>
+          <option value={"Orange"}>Orange</option>
+          <option value={"Purple"}>Purple</option>
+          <option value={"Pink"}>Pink</option>
+        </Select>
+        <InputLabel htmlFor="filled-age-native-simple">
+          Background Color
+        </InputLabel>
+        <Select
+          native
+          value={color.backgroundColor}
+          onChange={handleChange}
+          inputProps={{
+            name: "backgroundColor",
+            id: "filled-age-native-simple",
+          }}
+        >
+          <option label={color.backgroundColor} value={color.backgroundColor} />
+          <option value={"White"}>White</option>
+          <option value={"Green"}>Green</option>
+          <option value={"Red"}>Red</option>
+          <option value={"Yellow"}>Yellow</option>
+          <option value={"Black"}>Black</option>
+          <option value={"Orange"}>Orange</option>
+          <option value={"Purple"}>Purple</option>
+          <option value={"Pink"}>Pink</option>
+        </Select>
+        {!start ? (
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={() => {
+              setStart(!start);
+              startRef.current = true;
+              startGame();
+            }}
+          >
+            Start
+          </Button>
+        ) : (
+          <Button
+            className="generation-display"
+            color="primary"
+            variant="contained"
+            onClick={() => {
+              setStart(!start);
+              startRef.current = false;
+              startGame();
+            }}
+          >
+            Stop
+          </Button>
+        )}
+      </div>
+
       <div
         className="grid"
         style={{
@@ -137,124 +255,16 @@ function App(props) {
           ))
         )}
       </div>
-      <div className="button-container">
-        {/* <Button
-          color="primary"
-          variant="outlined"
-          onClick={() => changeGrid(10, 10)}
-        >
-          10 x 10
-        </Button>
-        <Button
-          color="primary"
-          variant="outlined"
-          onClick={() => changeGrid(25, 25)}
-        >
-          25 x 25
-        </Button>
-        <Button
-          color="primary"
-          variant="outlined"
-          onClick={() => changeGrid(50, 50)}
-        >
-          50 x 50 (Default)
-        </Button> */}
-        <Button
-          color="primary"
-          variant="outlined"
-          onClick={() => {
-            speedChanger(2);
-          }}
-        >
-          Decrease Speed
-        </Button>
-        <Button
-          color="primary"
-          variant="outlined"
-          onClick={() => {
-            speedChanger(1);
-          }}
-        >
-          Increase Speed
-        </Button>
-
-        {!start ? (
-          <Button
-            color="primary"
-            variant="contained"
-            onClick={() => {
-              setStart(!start);
-              startRef.current = true;
-              startGame();
-            }}
-          >
-            Start
-          </Button>
-        ) : (
-          <Button
-            className="generation-display"
-            color="primary"
-            variant="contained"
-            onClick={() => {
-              setStart(!start);
-              startRef.current = false;
-              startGame();
-            }}
-          >
-            Stop
-          </Button>
-        )}
-
-        <Typography variant="h4" component="h2">
-          Current Generation {currentGen}
-        </Typography>
-        <Typography variant="h6" component="h2">
-          Current Speed {newSpeed} Seconds
-        </Typography>
-        <InputLabel htmlFor="filled-age-native-simple">Cell Color</InputLabel>
-        <Select
-          native
-          value={color.cellColor}
-          onChange={handleChange}
-          inputProps={{
-            name: "cellColor",
-            id: "filled-age-native-simple",
-          }}
-        >
-          <option aria-label={color.cellColor} value={color.cellColor} />
-          <option value={"Green"}>Green</option>
-          <option value={"Red"}>Red</option>
-          <option value={"Yellow"}>Yellow</option>
-          <option value={"Black"}>Black</option>
-          <option value={"Orange"}>Orange</option>
-          <option value={"Purple"}>Purple</option>
-          <option value={"Pink"}>Pink</option>
-        </Select>
-        <InputLabel htmlFor="filled-age-native-simple">
-          Background Color
-        </InputLabel>
-        <Select
-          native
-          value={color.backgroundColor}
-          onChange={handleChange}
-          inputProps={{
-            name: "backgroundColor",
-            id: "filled-age-native-simple",
-          }}
-        >
-          <option
-            aria-label={color.backgroundColor}
-            value={color.backgroundColor}
-          />
-          <option value={"White"}>White</option>
-          <option value={"Green"}>Green</option>
-          <option value={"Red"}>Red</option>
-          <option value={"Yellow"}>Yellow</option>
-          <option value={"Black"}>Black</option>
-          <option value={"Orange"}>Orange</option>
-          <option value={"Purple"}>Purple</option>
-          <option value={"Pink"}>Pink</option>
-        </Select>
+      <div className="text">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
       </div>
     </div>
   );
