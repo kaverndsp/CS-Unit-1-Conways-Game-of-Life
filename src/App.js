@@ -163,7 +163,7 @@ function App() {
               speedChanger(2);
             }}
           >
-            Decrease Speed -
+            Increase Speed +
           </Button>
           <Button
             color="primary"
@@ -172,7 +172,7 @@ function App() {
               speedChanger(1);
             }}
           >
-            Increase Speed +
+            Decrease Speed -
           </Button>
           <Typography
             variant="h6"
