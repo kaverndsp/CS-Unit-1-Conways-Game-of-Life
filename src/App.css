@@ -11,17 +11,28 @@
   padding-right: 5%;
 }
 
-.button-container {
+.main-container {
   margin-top: 8px;
   width: 33%;
   padding-left: 5%;
 }
 
 .generation-display {
-  text-align: center;
+  margin-bottom: 20%;
 }
 
 .text {
   width: 32%;
   padding-right: 5%;
+}
+
+.button-container {
+  margin-bottom: 10%;
+}
+
+.colorpicker {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10%;
+  margin-right: 15%;
 }
