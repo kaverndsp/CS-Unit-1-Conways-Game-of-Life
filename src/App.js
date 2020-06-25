@@ -10,17 +10,17 @@ import "./App.css";
 let currentGen = 0;
 let currentSpeed = 500;
 
-function App(props) {
+function App() {
   const [rows, setRows] = useState(60);
   const [columns, setColumns] = useState(60);
   const [start, setStart] = useState(false);
   const [generation, setGeneration] = useState(0);
+  const [randomValue, setRandomValue] = useState({ newRandom: "0.5" });
   const [newSpeed, setNewSpeed] = useState(currentSpeed / 1000);
   const [color, setColor] = useState({
     cellColor: null || "",
     backgroundColor: null || "",
   });
-
   const startRef = useRef();
   startRef.current = start;
   const [grid, setGrid] = useState(() => {
@@ -52,18 +52,6 @@ function App(props) {
 
     setNewSpeed(currentSpeed / 1000);
   };
-  const changeGrid = (a, b) => {
-    setColumns(a);
-    setRows(b);
-
-    setGrid(() => {
-      const gridRows = [];
-      for (let i = 0; i < rows; i++) {
-        gridRows.push(Array.from(Array(columns), () => 0));
-      }
-      return gridRows;
-    });
-  };
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -72,7 +60,21 @@ function App(props) {
       ...color,
       [name]: event.target.value,
     });
-    console.log(color);
+
+    setRandomValue({
+      ...randomValue.newRandom,
+      [name]: event.target.value,
+    });
+    console.log(randomValue);
+  };
+  const randomizer = (a) => {
+    const gridRows = [];
+    for (let i = 0; i < rows; i++) {
+      gridRows.push(
+        Array.from(Array(columns), () => (Math.random() > a ? 0 : 1))
+      );
+    }
+    setGrid(gridRows);
   };
 
   const reset = () => {
@@ -150,27 +152,7 @@ function App(props) {
         <Typography variant="h4" component="h2">
           Current Generation {currentGen}
         </Typography>
-        {/* <Button
-          color="primary"
-          variant="outlined"
-          onClick={() => changeGrid(10, 10)}
-        >
-          10 x 10
-        </Button>
-        <Button
-          color="primary"
-          variant="outlined"
-          onClick={() => changeGrid(25, 25)}
-        >
-          25 x 25
-        </Button>
-        <Button
-          color="primary"
-          variant="outlined"
-          onClick={() => changeGrid(50, 50)}
-        >
-          50 x 50 (Default)
-        </Button> */}
+
         <div>
           <Button
             color="primary"
@@ -275,6 +257,30 @@ function App(props) {
           }}
         >
           Reset
+        </Button>
+        <InputLabel htmlFor="filled-age-native-simple">Cell Color</InputLabel>
+        <Select
+          native
+          value={randomValue.newRandom}
+          onChange={handleChange}
+          inputProps={{
+            name: "randomValue",
+            id: "filled-age-native-simple",
+          }}
+        >
+          <option label={"Strength"} value={randomValue.newRandom} />
+          <option value={"0.1"}>Very Weak</option>
+          <option value={"0.3"}>Weak</option>
+          <option value={"0.4"}>Medium</option>
+          <option value={"0.7"}>Strong</option>
+          <option value={"0.9"}>Very Strong</option>
+        </Select>
+        <Button
+          onClick={() => {
+            randomizer(0.3);
+          }}
+        >
+          Random
         </Button>
       </div>
 
