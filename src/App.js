@@ -17,6 +17,7 @@ function App() {
   const [generation, setGeneration] = useState(0);
   const [randomValue, setRandomValue] = useState({ newRandom: "0.5" });
   const [newSpeed, setNewSpeed] = useState(currentSpeed / 1000);
+  const [selector, setSelector] = useState(false);
   const [color, setColor] = useState({
     cellColor: "Green" || "",
     backgroundColor: "White" || "",
@@ -30,7 +31,7 @@ function App() {
     }
     return gridRows;
   });
-
+  console.log(selector);
   const coordinates = [
     [0, 1],
     [0, -1],
@@ -275,10 +276,17 @@ function App() {
         >
           Random
         </Button>
+        <Button
+          onClick={() => {
+            setSelector(!selector);
+          }}
+        >
+          Grid Shadow
+        </Button>
       </div>
 
       <div
-        className="grid"
+        className={!selector ? "grid" : "grid2"}
         style={{
           display: "grid",
           gridTemplateColumns: `repeat(${columns}, 12px)`,
@@ -306,8 +314,9 @@ function App() {
           ))
         )}
       </div>
+
       <div className="text">
-        <Typography variant="h4" component="h4">
+        <Typography variant="h4" component="h4" style={{ textAlign: "center" }}>
           Conway's Game of Life
         </Typography>
         <Typography variant="body2" component="h6">
@@ -320,7 +329,11 @@ function App() {
           patterns throughout the course of the game." -
           <a href="https://bitstorm.org/gameoflife/">GameOfLife</a>
         </Typography>
-        <Typography variant="h6" component="h5">
+        <Typography
+          variant="h6"
+          component="h5"
+          style={{ textAlign: "center", marginTop: "15px" }}
+        >
           Rules of Conway's Game of Life
         </Typography>
         <Typography variant="body2" component="h6">

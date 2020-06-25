@@ -8,7 +8,13 @@
 }
 
 .grid {
-  padding-right: 5%;
+  margin-right: 5%;
+  -webkit-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 26px 0px rgba(0, 0, 0, 0.75);
+}
+.grid2 {
+  margin-right: 5%;
 }
 
 .main-container {
