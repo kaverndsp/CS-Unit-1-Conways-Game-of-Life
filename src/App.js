@@ -29,9 +29,10 @@ function App() {
     for (let i = 0; i < rows; i++) {
       gridRows.push(Array.from(Array(columns), () => 0));
     }
+
     return gridRows;
   });
-  console.log(selector);
+
   const coordinates = [
     [0, 1],
     [0, -1],
@@ -66,7 +67,6 @@ function App() {
       ...randomValue.newRandom,
       [name]: event.target.value,
     });
-    console.log(randomValue);
   };
   const randomizer = (a) => {
     const gridRows = [];
@@ -155,7 +155,7 @@ function App() {
             Current Generation {currentGen}
           </Typography>
         </div>
-        <div class="button-container">
+        <div className="button-container">
           <Button
             color="primary"
             variant="outlined"
@@ -182,7 +182,7 @@ function App() {
             Current Speed {newSpeed} Seconds
           </Typography>
         </div>
-        <div class="colorpicker">
+        <div className="colorpicker">
           <InputLabel htmlFor="filled-age-native-simple">Cell Color</InputLabel>
           <Select
             native
@@ -228,7 +228,7 @@ function App() {
             <option value={"Pink"}>Pink</option>
           </Select>
         </div>
-        <div class="buttons">
+        <div className="buttons">
           {!start ? (
             <Button
               color="primary"
@@ -371,6 +371,14 @@ function App() {
               other dead cells stay dead.
             </li>
           </ol>
+        </Typography>
+        <Typography variant="h6" component="h6">
+          <a
+            className="github"
+            href="https://github.com/kaverndsp/CS-Unit-1-Conways-Game-of-Life"
+          >
+            Github
+          </a>
         </Typography>
       </div>
     </div>
